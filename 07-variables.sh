@@ -11,3 +11,5 @@ echo "Home directory of current user: $HOME"
 echo "PID of this script: $$"
 sleep 100 &
 echo "PID of recently executed background process: $!"
+
+# sh 07-variables Rama Vinod
