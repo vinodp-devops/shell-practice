@@ -5,5 +5,5 @@ NUM2=200
 NUM3=300
 NAME=Vinod
 
-SUM=$(((NUM1+NUM2+NUM3)/NAME))
-echo "Sum is $SUM"
+SUM=$((NUM1+NUM2+NUM3))
+echo "Sum is $SUM, $NAME"
