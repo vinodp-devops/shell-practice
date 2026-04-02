@@ -31,7 +31,7 @@ VALIDATE $? "Installing MySQL"
 dnf install nodejs -y
 VALIDATE $? "Installing NodeJS"
 
-dnf uninstall nginx -y
-dnf uninstall mysql -y
-dnf uninstall nodejs -y
+dnf remove nginx -y
+dnf remove mysql -y
+dnf remove nodejs -y
 VALIDATE2 "Done"
