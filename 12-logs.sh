@@ -10,7 +10,7 @@ if [ $USERID != 0 ]; then
     exit 1
 fi
 
-mkdir -p $LOGS_FOLDER
+$(mkdir -p $LOGS_FOLDER)
 
 VALIDATE() {
     if [ $1 != 0 ]; then
@@ -22,7 +22,7 @@ VALIDATE() {
 }
 
 VALIDATE2() {
-    echo "$1 ... UNINSTALLATION SUCCESS "
+    echo "$1 UNINSTALLATION ...SUCCESS "
 }
 
 
