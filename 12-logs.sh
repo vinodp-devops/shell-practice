@@ -2,11 +2,15 @@
 
 # Gets the Userid root -> 0
 USERID=$(id -u)
+LOGS_FOLDER = "/var/log/shell-script"
+LOGS_FILENAME = "$LOGS_FOLDER/$0.log"
 
 if [ $USERID != 0 ]; then
     echo "Please run this script with root user access: sudo su -"
     exit 1
 fi
+
+mkdir -p $LOGS_FOLDER
 
 VALIDATE() {
     if [ $1 != 0 ]; then
@@ -22,16 +26,16 @@ VALIDATE2() {
 }
 
 
-dnf install nginx -y
+dnf install nginx -y &>> LOGS_FILENAME
 VALIDATE $? "Installing Nginx"
 
-dnf install mysql -y
+dnf install mysql -y &>> LOGS_FILENAME
 VALIDATE $? "Installing MySQL"
 
-dnf install nodejs -y
+dnf install nodejs -y &>> LOGS_FILENAME
 VALIDATE $? "Installing NodeJS"
 
-dnf remove nginx -y
-dnf remove mysql -y
-dnf remove nodejs -y
+dnf remove nginx -y &>> LOGS_FILENAME
+dnf remove mysql -y &>> LOGS_FILENAME
+dnf remove nodejs -y &>> LOGS_FILENAME
 VALIDATE2 "Done"
