@@ -10,7 +10,7 @@ if [ $USERID != 0 ]; then
     exit 1
 fi
 
-$(mkdir -p $LOGS_FOLDER)
+mkdir -p $LOGS_FOLDER
 
 VALIDATE() {
     if [ $1 != 0 ]; then
@@ -26,16 +26,16 @@ VALIDATE2() {
 }
 
 
-dnf install nginx -y &>> LOGS_FILENAME
+dnf install nginx -y &>> $LOGS_FILENAME
 VALIDATE $? "Installing Nginx"
 
-dnf install mysql -y &>> LOGS_FILENAME
+dnf install mysql -y &>> $LOGS_FILENAME
 VALIDATE $? "Installing MySQL"
 
-dnf install nodejs -y &>> LOGS_FILENAME
+dnf install nodejs -y &>> $LOGS_FILENAME
 VALIDATE $? "Installing NodeJS"
 
-dnf remove nginx -y &>> LOGS_FILENAME
-dnf remove mysql -y &>> LOGS_FILENAME
-dnf remove nodejs -y &>> LOGS_FILENAME
+dnf remove nginx -y &>> $LOGS_FILENAME
+dnf remove mysql -y &>> $LOGS_FILENAME
+dnf remove nodejs -y &>> $LOGS_FILENAME
 VALIDATE2 "Done"
