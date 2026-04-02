@@ -11,6 +11,12 @@ if [ $USERID != 0 ]; then
 fi
 
 mkdir -p $LOGS_FOLDER
+if [ $? != 0 ]; then
+    echo "Unable to create Directory $LOGS_FOLDER"
+    exit 1
+else
+    echo "Directory $LOGS_FOLDER CREATED"
+fi
 
 VALIDATE() {
     if [ $1 != 0 ]; then
