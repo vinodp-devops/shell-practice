@@ -1,7 +1,6 @@
 #!/bin/bash
 
 set -e #ERR
-trap 'echo "There is an error in $LINENO, Command: $BASH_COMMAND"' ERR &>> $LOGS_FILE
 
 
 R="\e[31m"
@@ -14,6 +13,8 @@ N="\e[0m"
 USERID=$(id -u)
 LOGS_FOLDER="/var/log/shell-script"
 LOGS_FILE="$LOGS_FOLDER/$0.log"
+
+trap 'echo "There is an error in $LINENO, Command: $BASH_COMMAND"' ERR &>> $LOGS_FILE
 
 if [ $USERID != 0 ]; then
     echo -e "$R Please run this script with root user access: sudo su - $N" | tee -a $LOGS_FILE
