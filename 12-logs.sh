@@ -41,7 +41,7 @@ VALIDATE $? "Installing MySQL"
 dnf install nodejs -y &>> $LOGS_FILE
 VALIDATE $? "Installing NodeJS"
 
-dnf remove nginx -y &>> $LOGS_FILE
-dnf remove mysql -y &>> $LOGS_FILE
-dnf remove nodejs -y &>> $LOGS_FILE
-VALIDATE2 "Done"
+# dnf remove nginx -y &>> $LOGS_FILE
+# dnf remove mysql -y &>> $LOGS_FILE
+# dnf remove nodejs -y &>> $LOGS_FILE
+# VALIDATE2 "Done"
