@@ -28,10 +28,33 @@ VALIDATE() {
     fi
 }
 
-MODULES=("nginx" "mysql" "nodejs")
+REMOVE_PACKAGE() {
+    if [ $1 != 0 ]; then
+        echo "$2 ... FAILURE" | tee -a $LOGS_FILE
+    else
+        echo "$2 ... SUCCESS" | tee -a $LOGS_FILE
+    fi
+}
 
-for module in ${MODULES[@]}
+# sudo sh 14-loops.sh nginx mysql nodejs
+for package in $@
 do
-    dnf install $module -y &>> $LOGS_FILE 
-    VALIDATE $? "Installing $module"
+    dnf install $package -y &>> $LOGS_FILE
+    VALIDATE $? "Installing $package"
 done
+
+# sudo sh 14-loops.sh nginx mysql nodejs
+for package in $@
+do
+    dnf remove $package -y &>> $LOGS_FILE
+    REMOVE_PACKAGE $? "Removed $package"
+done
+
+
+# MODULES=("nginx" "mysql" "nodejs")
+
+# for module in ${MODULES[@]}
+# do
+#     dnf install $module -y &>> $LOGS_FILE 
+#     VALIDATE $? "Installing $module"
+# done
