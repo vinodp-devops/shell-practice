@@ -30,7 +30,7 @@ VALIDATE() {
 
 MODULES=("nginx" "mysql" "nodejs")
 
-for module in MODULES
+for module in ${MODULES[@]}
 do
     dnf install $module -y &>> $LOGS_FILE 
     VALIDATE $? "Installing $module"
