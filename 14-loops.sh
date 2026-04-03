@@ -3,7 +3,7 @@
 # Gets the Userid root -> 0
 USERID=$(id -u)
 LOGS_FOLDER="/var/log/shell-script"
-LOGS_FILE="$LOGS_FOLDER/$0"
+LOGS_FILE="$LOGS_FOLDER/$0.log"
 
 if [ $USERID != 0 ]; then
     echo "Please run this script with root user access: sudo su -" | tee -a $LOGS_FILE
