@@ -50,7 +50,6 @@ do
     REMOVE_PACKAGE $? "Removed $package"
 done
 
-
 # MODULES=("nginx" "mysql" "nodejs")
 
 # for module in ${MODULES[@]}
