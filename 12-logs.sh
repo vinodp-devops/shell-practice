@@ -11,6 +11,7 @@ if [ $USERID != 0 ]; then
 fi
 
 mkdir -p $LOGS_FOLDER
+
 if [ $? != 0 ]; then
     echo "Unable to create Directory $LOGS_FOLDER" | tee -a $LOG_FILE
     exit 1
