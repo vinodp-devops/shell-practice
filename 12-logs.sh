@@ -6,7 +6,7 @@ LOGS_FOLDER="/var/log/shell-script"
 LOGS_FILE="$LOGS_FOLDER/$0.log"
 
 if [ $USERID != 0 ]; then
-    echo "Please run this script with root user access: sudo su -"
+    echo "Please run this script with root user access: sudo su -" | tee -a $LOGS_FILE
     exit 1
 fi
 
