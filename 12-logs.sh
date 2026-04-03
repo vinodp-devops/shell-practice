@@ -13,23 +13,23 @@ fi
 mkdir -p $LOGS_FOLDER
 
 if [ $? != 0 ]; then
-    echo "Unable to create Directory $LOGS_FOLDER" | tee -a $LOG_FILE
+    echo "Unable to create Directory $LOGS_FOLDER" | tee -a $LOGS_FILE
     exit 1
 else
-    echo "Directory $LOGS_FOLDER CREATED/Detected" | tee -a $LOG_FILE
+    echo "Directory $LOGS_FOLDER CREATED/Detected" | tee -a $LOGS_FILE
 fi
 
 VALIDATE() {
     if [ $1 != 0 ]; then
-        echo "$2 ... FAILURE" | tee -a $LOG_FILE
+        echo "$2 ... FAILURE" | tee -a $LOGS_FILE
         exit 1
     else
-        echo "$2 ... SUCCESS" | tee -a $LOG_FILE
+        echo "$2 ... SUCCESS" | tee -a $LOGS_FILE
     fi
 }
 
 VALIDATE2() {
-    echo "$1 UNINSTALLATION ...SUCCESS" | tee -a $LOG_FILE 
+    echo "$1 UNINSTALLATION ...SUCCESS" | tee -a $LOGS_FILE 
 }
 
 
